@@ -13,6 +13,9 @@ build/
 .env.local
 .env.production
 aiassistantrules.txt
+simulatedenv.txt
+DEVLOG.md
+MISSION.md
 
 # IDE files
 .vscode/
