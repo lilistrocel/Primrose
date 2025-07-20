@@ -4,11 +4,13 @@ A modular TypeScript backend framework with user authentication, built for scala
 
 ## Tech Stack
 
+- **Frontend**: React + TypeScript + Vite
+- **Styling**: Tailwind CSS + Custom Components
 - **Backend**: Node.js + Express + TypeScript
 - **Database**: MongoDB + Mongoose
 - **Authentication**: JWT + bcrypt
 - **Security**: Helmet, CORS, Rate Limiting
-- **Validation**: Joi
+- **Validation**: Joi (Backend) + Client-side validation
 
 ## Getting Started
 
@@ -45,25 +47,32 @@ cp .env.example .env
 # - MONGODB_URI=mongodb://primrose_user:primrose_password@localhost:27017/primrose
 ```
 
-4. **Start development server** (multiple options):
+4. **Install frontend dependencies**
+```bash
+npm run frontend:install
+```
 
-**Option A: Service Manager (Recommended)**
+5. **Start development server** (multiple options):
+
+**Option A: Full-Stack Development (Recommended)**
+```bash
+npm run fullstack:start
+```
+This starts:
+- 🌐 Frontend: http://localhost:5173
+- 🔌 Backend API: http://localhost:3000
+- 📊 MongoDB Express: http://localhost:8081
+
+**Option B: Backend Only**
 ```bash
 npm run services:start
 ```
 
-**Option B: Windows Batch File (Windows users)**
+**Option C: Windows Batch File (Windows users)**
 ```bash
 start.bat
 # or double-click start.bat in File Explorer
 ```
-
-**Option C: Simple Development Server**
-```bash
-npm run dev
-```
-
-The server will start on `http://localhost:3000`
 
 ### First-Time Setup
 
@@ -80,7 +89,8 @@ This creates test accounts:
 ## Available Scripts
 
 ### Development
-- `npm run dev` - Start development server with hot reload
+- `npm run fullstack:start` - Start complete full-stack environment
+- `npm run dev` - Start backend development server with hot reload
 - `npm run services:start` - Start service manager with logging
 - `npm run start:simple` - Direct Node.js server startup
 - `npm run win:start` - Windows batch file starter
@@ -92,10 +102,11 @@ This creates test accounts:
 - `npm run clean` - Clean build directory
 
 ### Testing
-- `npm test` - Run all tests
+- `npm test` - Run backend tests
 - `npm run test:watch` - Run tests in watch mode
 - `npm run test:coverage` - Run tests with coverage report
 - `npm run test:auth` - Run only authentication tests
+- `npm run frontend:test` - Run frontend tests
 
 ### Database & Utilities
 - `npm run db:seed` - Seed database with test data
@@ -123,17 +134,20 @@ This creates test accounts:
 ## Project Structure
 
 ```
-src/
-├── config/           # Configuration files
-├── middleware/       # Global middleware
-├── modules/          # Feature modules
-│   └── auth/         # Authentication module
-│       ├── auth.controller.ts
-│       ├── auth.middleware.ts
-│       ├── auth.model.ts
-│       ├── auth.routes.ts
-│       └── auth.validation.ts
-└── index.ts          # Main server entry
+├── frontend/         # React Frontend
+│   ├── src/
+│   │   ├── components/   # Reusable UI components
+│   │   ├── pages/        # Application pages
+│   │   ├── context/      # React contexts
+│   │   ├── services/     # API services
+│   │   └── types/        # TypeScript types
+│   └── package.json
+├── src/              # Backend
+│   ├── config/       # Configuration files
+│   ├── middleware/   # Global middleware
+│   └── modules/      # Feature modules
+│       └── auth/     # Authentication module
+└── scripts/          # Development and deployment scripts
 ```
 
 ## Modular Architecture

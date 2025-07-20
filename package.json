@@ -23,7 +23,22 @@
     "docker:stop": "node scripts/docker-services.js stop",
     "docker:status": "node scripts/docker-services.js status",
     "docker:logs": "node scripts/docker-services.js logs",
-    "docker:restart": "node scripts/docker-services.js restart"
+    "docker:restart": "node scripts/docker-services.js restart",
+    "deploy:dev": "node scripts/deploy.js deploy development",
+    "deploy:staging": "node scripts/deploy.js deploy staging",
+    "deploy:prod": "node scripts/deploy.js deploy production",
+    "deploy:rollback": "node scripts/deploy.js rollback",
+    "deploy:health": "node scripts/deploy.js health",
+    "deploy:backup": "node scripts/deploy.js backup",
+    "lint": "eslint src/ --ext .ts --fix",
+    "security:audit": "npm audit --audit-level=moderate",
+    "security:check": "node scripts/security-check.js",
+    "aws:setup": "node scripts/aws-setup.js",
+    "ci:full": "npm run lint && npm run security:audit && npm test && npm run build",
+    "fullstack:start": "node scripts/start-fullstack.js",
+    "frontend:install": "cd frontend && npm install",
+    "frontend:build": "cd frontend && npm run build",
+    "frontend:test": "cd frontend && npm test"
   },
   "keywords": ["typescript", "express", "mongodb", "auth", "modular"],
   "author": "",
@@ -57,7 +72,10 @@
     "concurrently": "^8.2.2",
     "winston": "^3.11.0",
     "chalk": "^4.1.2",
-    "mongodb-memory-server": "^9.1.3"
+    "mongodb-memory-server": "^9.1.3",
+    "eslint": "^8.55.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2"
   },
   "jest": {
     "preset": "ts-jest",
