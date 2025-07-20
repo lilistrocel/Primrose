@@ -12,6 +12,7 @@ build/
 .env
 .env.local
 .env.production
+aiassistantrules.txt
 
 # IDE files
 .vscode/
