@@ -1,0 +1,40 @@
+# AI Assistant Rules & Guidelines
+
+This file contains important guidelines for efficient collaboration between the AI assistant and the user.
+
+## Environment & Platform Rules
+
+### Rule 1: Platform Information
+- **OS**: Windows with PowerShell
+- **Shell**: PowerShell is the primary terminal environment
+- **Commands**: Use Windows-compatible commands and paths
+- **File Paths**: Use backslashes (\) for Windows paths when needed
+
+### Rule 2: File Access Restrictions  
+- **Restricted Files**: .env, .env.local, .env.production, and other credential files
+- **Solution**: Use `simulatedenv.txt` file to show how .env files should be configured
+- **Process**: AI creates/updates simulatedenv.txt → User syncs with actual .env file
+- **Benefits**: Maintains security while ensuring proper configuration
+
+### Rule 3: Optimization & Best Practices
+- **Proactive Suggestions**: AI should provide optimization recommendations
+- **Best Practices**: Suggest improvements for performance, security, and maintainability  
+- **User Choice**: Present options and let user decide on implementation
+- **Examples**: Code structure, security improvements, development workflow enhancements
+
+## Workflow Guidelines
+
+1. **Configuration Changes**: Always update simulatedenv.txt when environment changes are needed
+2. **Documentation**: Keep DEVLOG.md and README.md updated with all changes
+3. **Testing**: Provide testing commands and verification steps
+4. **Troubleshooting**: Include common issues and solutions in documentation
+
+## Communication Style
+
+- Use clear, actionable instructions
+- Provide multiple options when applicable
+- Explain the reasoning behind recommendations
+- Include relevant file paths and command examples
+
+---
+*This file should be referenced at the start of each conversation to ensure consistent and efficient collaboration.* 
