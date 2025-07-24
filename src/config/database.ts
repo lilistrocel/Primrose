@@ -2,6 +2,12 @@ import mongoose from 'mongoose';
 
 export async function connectDatabase(): Promise<void> {
   try {
+    // Skip connection if already connected (test mode)
+    if (mongoose.connection.readyState === 1) {
+      console.log('⚠️  MongoDB already connected (test mode)');
+      return;
+    }
+
     const mongoUri = process.env.MONGODB_URI;
     
     if (!mongoUri) {

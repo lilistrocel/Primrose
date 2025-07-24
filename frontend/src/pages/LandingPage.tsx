@@ -16,6 +16,9 @@ export const LandingPage: React.FC = () => {
               <h1 className="text-2xl font-bold text-primary-700">Primrose</h1>
             </div>
             <div className="hidden md:flex items-center space-x-4">
+              <Link to="/catalog" className="text-gray-700 hover:text-primary-600 transition-colors">
+                Food Catalog
+              </Link>
               <Link to="/login" className="text-gray-700 hover:text-primary-600 transition-colors">
                 Sign In
               </Link>

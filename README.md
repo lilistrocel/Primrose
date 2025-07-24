@@ -110,6 +110,7 @@ This creates test accounts:
 
 ### Database & Utilities
 - `npm run db:seed` - Seed database with test data
+- `npm run inventory:seed` - Seed inventory with sample food items
 - `npm run db:seed -- --clear` - Clear and reseed database
 - `npm run health-check` - Check all service health
 - `npm run services:logs` - View service logs
@@ -127,6 +128,19 @@ This creates test accounts:
 - `POST /api/auth/register` - Register new user
 - `POST /api/auth/login` - Login user
 - `GET /api/auth/profile` - Get user profile (protected)
+
+### Inventory Management
+**Admin Operations (require admin authentication):**
+- `POST /api/inventory/admin/items` - Create new food item
+- `PUT /api/inventory/admin/items/:id` - Update existing item
+- `DELETE /api/inventory/admin/items/:id` - Delete item (soft delete)
+- `GET /api/inventory/admin/items` - List all items with admin details
+
+**Public Catalog (no authentication required):**
+- `GET /api/inventory/catalog` - Browse available items with search/filter
+- `GET /api/inventory/catalog/categories` - Get food categories
+- `GET /api/inventory/catalog/items/:id` - Get single item details
+- `POST /api/inventory/catalog/compare` - Compare nutrition of multiple items
 
 ### Health Check
 - `GET /health` - Server health status

@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import { connectDatabase } from './config/database';
 import { errorHandler } from './middleware/errorHandler';
 import authRoutes from './modules/auth/auth.routes';
+import inventoryRoutes from './modules/inventory/inventory.routes';
 
 // Load environment variables
 dotenv.config();
@@ -43,6 +44,7 @@ app.get('/health', (req, res) => {
 
 // API routes
 app.use('/api/auth', authRoutes);
+app.use('/api/inventory', inventoryRoutes);
 
 // Catch-all for undefined routes
 app.use('*', (req, res) => {
@@ -70,4 +72,10 @@ async function startServer() {
   }
 }
 
-startServer(); 
+// Export app for testing
+export { app };
+
+// Only start server if not in test mode
+if (process.env.NODE_ENV !== 'test') {
+  startServer();
+} 

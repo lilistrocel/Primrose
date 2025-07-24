@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
 import { useAuth } from '../context/AuthContext';
 import { apiService } from '../services/api';
@@ -193,11 +194,23 @@ export const DashboardPage: React.FC = () => {
           <div className="card mt-6">
             <h3 className="text-lg font-medium text-gray-900 mb-4">Quick Actions</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Link to="/catalog">
+                <Button variant="outline" className="justify-center w-full">
+                  🍎 Browse Catalog
+                </Button>
+              </Link>
+              {user?.role === 'admin' && (
+                <Link to="/admin/inventory">
+                  <Button variant="outline" className="justify-center w-full">
+                    ⚙️ Manage Inventory
+                  </Button>
+                </Link>
+              )}
               <Button variant="outline" className="justify-center">
-                View Logs
+                📊 View Logs
               </Button>
               <Button variant="outline" className="justify-center">
-                API Documentation
+                📚 API Documentation
               </Button>
               <Button variant="outline" className="justify-center">
                 Security Settings

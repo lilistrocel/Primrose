@@ -1,4 +1,4 @@
-import axios, { type AxiosInstance, type AxiosResponse } from 'axios';
+import axios, { type AxiosInstance } from 'axios';
 import type { AuthResponse, LoginCredentials, RegisterData, User, ApiError } from '../types/auth';
 
 class ApiService {
@@ -45,18 +45,24 @@ class ApiService {
 
   // Authentication endpoints
   async login(credentials: LoginCredentials): Promise<AuthResponse> {
-    const response: AxiosResponse<AuthResponse> = await this.api.post('/auth/login', credentials);
-    return response.data;
+    const response = await this.api.post('/auth/login', credentials);
+    // Backend returns { success, message, data: { user, token } }
+    // We need to extract the data and return { user, token }
+    return response.data.data;
   }
 
   async register(data: RegisterData): Promise<AuthResponse> {
-    const response: AxiosResponse<AuthResponse> = await this.api.post('/auth/register', data);
-    return response.data;
+    const response = await this.api.post('/auth/register', data);
+    // Backend returns { success, message, data: { user, token } }
+    // We need to extract the data and return { user, token }
+    return response.data.data;
   }
 
   async getProfile(): Promise<User> {
-    const response: AxiosResponse<User> = await this.api.get('/auth/profile');
-    return response.data;
+    const response = await this.api.get('/auth/profile');
+    // Backend returns { success, data: { user } }
+    // We need to extract the user from data
+    return response.data.data.user;
   }
 
   // Health check

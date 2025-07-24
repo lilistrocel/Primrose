@@ -16,6 +16,7 @@
     "services:start": "node scripts/start-services.js",
     "services:logs": "node scripts/log-viewer.js",
     "db:seed": "node scripts/seed-database.js",
+    "inventory:seed": "npm run build && node scripts/seed-inventory.js",
     "health-check": "node scripts/health-check.js",
     "start:simple": "node src/index.ts",
     "win:start": "start.bat",
