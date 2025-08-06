@@ -134,7 +134,7 @@ const healthPropertiesSchema = new Schema<IHealthProperties>({
     trim: true 
   }],
   glycemicIndex: { type: Number, min: 0, max: 100 },
-  antioxidantLevel: { type: String, enum: ['low', 'medium', 'high'] }
+  antioxidantLevel: { type: String, enum: ['low', 'medium', 'high', 'very high'] }
 }, { _id: false });
 
 const storageInfoSchema = new Schema<IStorageInfo>({
@@ -147,7 +147,8 @@ const storageInfoSchema = new Schema<IStorageInfo>({
   },
   storageConditions: [{ 
     type: String, 
-    enum: ['dry-place', 'away-from-light', 'airtight-container', 'ventilated', 'humidity-controlled'],
+    enum: ['dry-place', 'away-from-light', 'airtight-container', 'ventilated', 'humidity-controlled', 
+           'cool-dry-place', 'freezer-safe', 'perforated-bag', 'original-packaging'],
     trim: true 
   }]
 }, { _id: false });
@@ -171,7 +172,8 @@ const inventoryItemSchema = new Schema<IInventoryItem>({
     required: true,
     enum: [
       'vegetables', 'fruits', 'grains', 'legumes', 'proteins', 'dairy', 
-      'spices', 'herbs', 'oils', 'nuts-seeds', 'beverages', 'sweeteners'
+      'spices', 'herbs', 'oils', 'nuts-seeds', 'beverages', 'sweeteners',
+      'fermented', 'traditional-processed', 'canned-preserved'
     ],
     index: true
   },

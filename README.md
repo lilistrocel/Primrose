@@ -111,6 +111,9 @@ This creates test accounts:
 ### Database & Utilities
 - `npm run db:seed` - Seed database with test data
 - `npm run inventory:seed` - Seed inventory with sample food items
+- `npm run csv:import` - **Import all 349 items from CSV files with progress tracking**
+- `npm run csv:count` - **Count inventory items by category**
+- `npm run csv:clear` - **Safely clear all inventory (with confirmation)**
 - `npm run db:seed -- --clear` - Clear and reseed database
 - `npm run health-check` - Check all service health
 - `npm run services:logs` - View service logs
